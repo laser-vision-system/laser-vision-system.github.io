@@ -1,3 +1,3 @@
-# How Tos
-
-Short guides for how to do certain actions.
+# How Tos 
+Short guides for how complete certain tasks using the GUI
+## How to 
