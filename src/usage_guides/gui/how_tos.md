@@ -3,6 +3,9 @@ Short guides for how complete certain tasks using the GUI
 
 ## How to Set a Reference Frame
 
+## How to Manage Disconnected Devices
+### How to Forget a Device
+### How to Force Retry a Faulty Camera
 
 ## How to Configure a Camera
 To configure a camera either click the configure button in the camera info panel when the camera is selected on the homepage, or go to the device settings page and  use the drop down menu under the camera settings section to to select the desired camera, in the case of too many options the microcomputer can also be selected to filter the camera options by the microcomputer they are physically connected to.
@@ -47,6 +50,7 @@ To reset the new configured range to the previously saved values click the `Canc
 To close the range configuration simply click the `Close Configuration` button located in the same location as the Configure Range button.
 
 ## How to Configure a microComputer
+A micro computer can be configured through the homepage by clicking the configure button next the the name of the microcomputer in the connections tab of the homepage, alternatively you can go to the device settings page and select the microcomputer you wish to configure using the drop down menu. 
 ### How to Rename a microComputer
 To Rename a microcomputer which is connected to the system:
 1. Select the desired microcomputer from the drop down menu directly under the microcomputer configuration section.
