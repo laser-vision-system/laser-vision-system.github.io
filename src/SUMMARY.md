@@ -11,6 +11,10 @@
 
 - [GUI](usage_guides/gui/intro.md)
   - [Quickstart](usage_guides/gui/quickstart.md)
+    - [NavBar](./usage_guides/gui/navbar.md)
+    - [Homepage](./usage_guides/gui/homepage.md)
+    - [Device Settings](./usage_guides/gui/device_settings.md)
+    - [Global Settings](./usage_guides/gui/global_settings.md)
   - [How Tos](usage_guides/gui/how_tos.md)
     - [Configure microComputers](./usage_guides/gui/how_to_configure_microcomputer.md)
       - [Rename microComputer](./usage_guides/gui/how_to_rename_microcomputer.md)
