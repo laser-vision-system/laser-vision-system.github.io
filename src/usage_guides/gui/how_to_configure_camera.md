@@ -1,0 +1,2 @@
+## How to Configure a Camera
+To configure a camera either click the configure button in the camera info panel when the camera is selected on the homepage, or go to the device settings page and  use the drop down menu under the camera settings section to to select the desired camera, in the case of too many options the microcomputer can also be selected to filter the camera options by the microcomputer they are physically connected to.
