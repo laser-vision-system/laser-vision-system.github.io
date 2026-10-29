@@ -1,5 +1,5 @@
 # How to Toggle the Camera Feed
-The camera feed can be toggled globally which will toggle the camera feeds initial state, from either showing or not showing. The camera feed can also be toggle locally within the homepage and the device settings tabs, allowing the user to control the homepage's visibility. 
+The camera feed can be toggled globally which will toggle the camera feed's initial state from either showing or not showing. The camera feed can also be toggled locally within the homepage and the device settings tabs, allowing the user to control the homepage's feed visibility. 
 
 Toggling the live camera feed doesn't only stop the feed from showing on the GUI, it sends a request to the server to stop the viewing all together. This can be very useful to not bloat the local labs network with a live camera feed when it is not needed. Saving the networks bandwidth which could be big help at a larger scale.
 
