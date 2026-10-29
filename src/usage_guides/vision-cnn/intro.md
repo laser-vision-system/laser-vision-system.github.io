@@ -6,10 +6,10 @@ This repository uses the [dataset-loader](https://github.com/laser-vision-system
 
 The primary method of interacting with this code library is through the included command-line interface (CLI). You can...
 
-- Train a new model from scratch: `vision-cnn train new`
+- [Train a new model from scratch:](train_new.md) `vision-cnn train new`
 
-- Resume training on (finetune) and existing model: `vision-cnn train resume`
+- [Resume training (finetune) on an existing model:](train_resume.md) `vision-cnn train resume`
 
-- Run inference on a model: `vision-cnn infer`
+- [Run inference on a model:](infer.md) `vision-cnn infer`
 
 You can use `vision-cnn help <subcommand>` to see more information.
