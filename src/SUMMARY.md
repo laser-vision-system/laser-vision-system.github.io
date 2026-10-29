@@ -20,7 +20,7 @@
       - [Rename microComputer](./usage_guides/gui/how_to_rename_microcomputer.md)
       - [Select Vision Processing](./usage_guides/gui/how_to_vision_processing.md)
     - [Configure Cameras](./usage_guides/gui/how_to_configure_camera.md)
-      - [Rename Camera](./usage_guides/gui/how_to_rename_camera.md) 
+      - [Rename Camera](./usage_guides/gui/how_to_rename_camera.md)
       - [Configure Camera Controls](./usage_guides/gui/how_to_configure_camera_controls.md)
       - [Configure Camera Deviation Thresholds](./usage_guides/gui/how_to_configure_camera_thresholds.md)
     - [Configure Deviation Slider Range](./usage_guides/gui/how_to_configure_deviation_slider_range.md)
@@ -32,7 +32,6 @@
       - [Forget Camera](./usage_guides/gui/how_to_forget_camera.md)
       - [Forget microComputer](./usage_guides/gui/how_to_forget_microcomputer.md)
       - [Force Retry Camera](./usage_guides/gui/how_to_force_retry_camera.md)
- 
 
 - [Dataset Assistant](usage_guides/dataset_assistant/intro.md)
   - [Quickstart](usage_guides/dataset_assistant/quickstart.md)
