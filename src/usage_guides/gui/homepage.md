@@ -4,7 +4,7 @@ The Homepage is the main dashboard for the laser vision system, it shows the cur
 
 `The key features of the homepage include:`
 - `Deviation Alerts`
-  - The deviation alters single to the user via a colour coded message that cameras detected deviation is out of the waring or alter thresholds.
+  - The deviation alerts display a camera's deviation corresponding to their set thresholds via colour-coded messages.
 - `Connected and Disconnected Devices`
 - `Device Management`
 - `Deviation Detection`
