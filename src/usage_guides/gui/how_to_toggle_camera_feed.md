@@ -9,7 +9,7 @@ Located in the global settings tab under the theme toggle there is a sliding che
 ## How to Toggle the Camera Feed Locally
 
 ### Homepage 
-In the homepage tab the camera feed can be enabled / toggled by selecting a camera and clicking on the `View Live Feed` button, to disable or un-toggle the camera feed simply click the same button which has been renamed to `Hide Live Feed`
+In the homepage tab the camera feed can be enabled / toggled by selecting a camera and clicking on the `View Live Feed` button. To disable the camera feed simply click the same button labelled `Hide Live Feed`.
 
 ### Device Settings
 In the device settings tab simply click on the arrow button, on the left of the Camera Feed label. This is in line with how the rest of the section toggles work in the settings tabs, when the arrow is pointing up it means that the section is hidden, if the arrow is pointing down it means that the section is visible.
