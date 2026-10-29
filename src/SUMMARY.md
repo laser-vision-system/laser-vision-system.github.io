@@ -18,7 +18,6 @@
     - [Change Camera Controls]()
     - [Enable Automatic Camera Feed]()
 
-
 - [Dataset Assistant](usage_guides/dataset_assistant/intro.md)
   - [Quickstart](usage_guides/dataset_assistant/quickstart.md)
 
