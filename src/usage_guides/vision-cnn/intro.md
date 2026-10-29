@@ -11,10 +11,14 @@ repository as a submodule, as well as the datasets hosted on HuggingFace.
 The primary method of interacting with this code library is through the included
 command-line interface (CLI). You can...
 
-- [Train a new model from scratch:](train_new.md) `vision-cnn train new`
+- [Train a new model from scratch:](train.md#training-a-new-model)
+  `cnn train new`
 
-- [Resume training (finetune) on an existing model:](train_resume.md) `vision-cnn train resume`
+- [Resume training (finetune) on an existing model:](train.md#resumingfine-tuning-an-existing-model)
+  `cnn train resume`
 
-- [Run inference on a model:](infer.md) `vision-cnn infer`
+- [Run inference on a model:](infer.md) `cnn infer`
 
-You can use `vision-cnn help <subcommand>` to see more information.
+You can use `cnn help` to see basic command information, `cnn help <subcommand>`
+to see detaiked information, and `cnn <subcommand> -h` for concise usage
+information.
