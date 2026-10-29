@@ -15,7 +15,7 @@ The cameras that can be configured are the ones that are connected to the system
 
 `The connected Cameras can be configured to:`
 - Rename the selected camera to a more meaningful name (e.g. what it is observing).
-- Change the selected camera controls to for tweaking to help improve the vision processing. `Some camera controls to consider are:`
+- Change the selected camera controls for tweaks to help improve the vision processing. `Some camera controls to consider are:`
   - PUT IMPORTANT CAMERA CONTROLS HERE
 ![Camera Controls]()
 - Set the deviation thresholds for the selected camera, if a camera is miss behaving and needs a custom deviation ranges to keep them in check.
