@@ -1,5 +1,5 @@
 # Global Settings
-The Global Settings section is for the configuration of the underlying aspects of the system. It is split into two sections one for the GUI and the other for the server which includes the default server settings.
+The Global Settings section is for the configuration of the underlying aspects of the system. It is split into two sections: one for the GUI and the other for the server which includes the default server settings.
 
 ## GUI settings
 ![GUI Settings](./images/gui_settings.png)
