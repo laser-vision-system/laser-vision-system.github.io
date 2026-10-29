@@ -5,6 +5,6 @@ The NavBar, short for navigation bar, is used to switch between the different pa
 
 From the NavBar, you can swap between the three main pages:
 
-- [The Homepage](./homepage.md)
+- [Homepage](./homepage.md)
 - [Device Settings](./device_settings.md)
 - [Global Settings](./global_settings.md)
