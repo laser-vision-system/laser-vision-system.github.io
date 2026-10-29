@@ -9,8 +9,8 @@ Elevator pitch.
 
 **Sections of this book:**
 
-- *System Installation*
+- _System Installation_
   : How to set up the components of this project.
 
-- *Usage Guides*
+- _Usage Guides_
   : How to use the UI stuff.
