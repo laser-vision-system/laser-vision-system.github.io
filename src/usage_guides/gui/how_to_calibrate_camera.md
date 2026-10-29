@@ -6,6 +6,6 @@
 
 2. Click the `Calibrate` button.
 
-![Calibrate camera step 1](./images/calibrate_camera_2.png)
+![Calibrate camera step 2](./images/calibrate_camera_2.png)
 
 3. Deviation measurements should begin to update visually.
