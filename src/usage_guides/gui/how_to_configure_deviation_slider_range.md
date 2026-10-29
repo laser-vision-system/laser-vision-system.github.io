@@ -5,7 +5,7 @@
 3. When the button is clicked the option to edit the min and max of the deviation scale are shown.
 4. To save the new configured range, click the `Set Range` button.
 
-To set the new configured range to the applications default click the `Set Default Range` button.
+To set the new configured range to the application's default click the `Set Default Range` button.
 
 To reset the new configured range to the previously saved values click the `Cancel` button.
 
