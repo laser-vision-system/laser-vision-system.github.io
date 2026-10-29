@@ -7,7 +7,7 @@ The microComputers refer to the Raspberry Pi(s) that is used to run the edge. Th
 
 `The connected microComputers can be configured to:`
 - Be selected to filter the specific options for all the connected cameras, displayed in the camera configuration below.
-- Be renamed, allowing the user to give a meaningful identifier to the device 
+- Be renamed, allowing the user to give a meaningful identifier to the device.
 - Run a specific vision processing technique. Note: this will select the processing technique for all cameras connected to the microComputer.
 
 ## Cameras
