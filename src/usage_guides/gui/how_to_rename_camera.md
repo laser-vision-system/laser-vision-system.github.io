@@ -3,4 +3,4 @@
 2. Directly under the select camera option, you should see the rename camera option. Simply click on the text box and type in the desired name.
 3. To save the new name to the camera name, just click the `Rename` button on the right of the text box and click confirm on the pop-up message. 
 
-We advise to name the camera based on what it is observing or is position in the laser lab, to provide context on what is being observed and where the camera is physically in the laser lab.
+It is advised to name the camera based on what it is observing or its position in the laser lab, thus providing meaningful context.
