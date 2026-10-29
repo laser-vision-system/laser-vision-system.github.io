@@ -3,12 +3,12 @@
 ![Device Settings](./images/device_settings.png)
 The Device Settings section is for the configuration of the devices used in this project, such as the cameras and microComputers that are currently being used.
 
-## microComputers
+## Edge Device Settings
 
-![micro Computer Settings](./images/device_settings_microcomputer.png)
-The microComputers refer to the Raspberry Pi(s) that is used to run the edge. The edge can also be run on any computer. However, using a microComputer such as the Raspberry Pi is recommended due to its small form factor that fits well in the tightly-packed laser lab.
+![Edge Settings](./images/device_settings_microcomputer.png)
+Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge can also be run on any computer. However, using a microComputer such as the Raspberry Pi is recommended due to its small form factor that fits well in the tightly-packed laser lab.
 
-`The connected microComputers can be configured to:`
+`The connected Edge devices can be configured to:`
 
 - Be selected to filter the specific options for all the connected cameras, displayed in the camera configuration below.
 - Be renamed, allowing the user to give a meaningful identifier to the device.
