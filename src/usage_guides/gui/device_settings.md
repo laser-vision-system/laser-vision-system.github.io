@@ -18,7 +18,7 @@ The cameras that can be configured are the ones that are connected to the system
 - Change the selected camera controls for tweaks to help improve the vision processing. `Some camera controls to consider are:`
   - PUT IMPORTANT CAMERA CONTROLS HERE
 ![Camera Controls]()
-- Set the deviation thresholds for the selected camera, if a camera is miss behaving and needs a custom deviation ranges to keep them in check.
+- Set the deviation thresholds for the selected camera (e.g. if a camera is misbehaving and needs a custom deviation range to keep it in check).
 ![Camera Deviation](./images/deviation_thresholds_slider.png)
 - The range (min - max) of the Deviation threshold input slider can be configured to suit the needs of the cameras threshold setup, which allows for the fine tuning of the deviation thresholds.
 ![Deviation Slider Range](./images/deviation_slider_range.png)
