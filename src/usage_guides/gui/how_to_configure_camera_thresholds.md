@@ -5,7 +5,7 @@
 4. Any changes made to the threshold can be saved by clicking the `Save Thresholds` button.
 
 #### How to save the Global Default for the Deviation Thresholds 
-To set a new global default values for the deviation thresholds simply used the same slider as used in setting the cameras deviation value. However instead of clicking the save thresholds button click the `Save Global Default Thresholds` button. This will set the threshold values selected as the global default and save it to the server.
+To set new global default values for the deviation thresholds simply use the same slider as used in setting the camera's deviation value. However, instead of clicking the save thresholds button click the `Save Global Default Thresholds` button. This will set the threshold values selected as the global default and save it to the server.
 
 **To test the change has taken place:**
 1. Change the values on the slider. 
