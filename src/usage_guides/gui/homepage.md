@@ -1,6 +1,6 @@
 # Homepage
 ![Homepage]()
-The Homepage is the main dashboard for the project, it shows the current deviation values for the cameras which have been calibrated in a clear and easy to understand layout.
+The Homepage is the main dashboard for the laser vision system, it shows the current deviation values for the cameras which have been calibrated in a clear and easy-to-understand layout.
 
 `The key features of the homepage include:`
 - `Deviation Alerts`
