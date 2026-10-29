@@ -9,7 +9,7 @@ Similar to the camera controls these settings can be either changed via the slid
 The server values can be saved by clicking the `Save Server Defaults` button. When this is clicked the values set will be validated before they are sent to the server via a post request.
 
 ## Resetting the Server values
-The server defaults are hard coded on the user interface, to reset to the default values, click on the `Reset Server Defaults` button, then to save this change click on the `Save Server Defaults` button.
+The server defaults are hard-coded on the user interface, to reset to the default values, click on the `Reset Server Defaults` button. Then to save this change click on the `Save Server Defaults` button.
 
 ## To Note
 The value of the camera error decrement is not allowed to be lower than the camera error increment. If this is done the custom validation will tell you off with a warning making it impossible to save the values when they are out of their respective bounds.
