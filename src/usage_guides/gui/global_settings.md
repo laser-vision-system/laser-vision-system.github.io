@@ -4,7 +4,7 @@ The Global Settings section is for the configuration of the underlying aspects o
 ## GUI settings
 ![GUI Settings](./images/gui_settings.png)
 `The global settings for the GUI include:`
-- A toggle for the theme of the user interface, it allows the user to switch between light and dark mode. ( We recommend the dark mode)
+- A toggle for the theme of the user interface, it allows the user to switch between light and dark mode. (Dark mode is recommended.)
 - A toggle for the viewing of the camera feed throughout the whole application. which helps to declutter.
 
 
