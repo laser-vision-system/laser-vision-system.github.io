@@ -1,6 +1,6 @@
 # How to Configure the Server Settings
 ## Location
-The server settings can be configured via the global settings tab, located under the GUI settings section the server settings section has all the settings that can be changed on the server to effect its behaviour. These settings are kept by the server and sent to any edge device (microcomputer) that connects to the server, hence why they are often referred to as the default server settings.
+The server settings can be configured via the global settings tab, located under the GUI settings section the server settings section has all the settings that can be changed on the server to affect its behaviour. These settings are kept by the server and sent to any edge device (microcomputer) that connects to the server, hence why they are often referred to as the default server settings.
 
 ## How to Configure
 Similar to the camera controls these settings can be either changed via the sliders or a number input, they all have their respective range and validation to check that the values they are configured to are valid.
