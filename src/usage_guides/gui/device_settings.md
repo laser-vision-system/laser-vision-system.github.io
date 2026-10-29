@@ -11,7 +11,7 @@ The microComputers refer to the Raspberry Pi(s) that is used to run the edge. Th
 - Run a specific vision processing technique. Note: this will select the processing technique for all cameras connected to the microComputer.
 
 ## Cameras
-The cameras that can be configured are the ones that are connected to he system, and have their state as active.
+The cameras that can be configured are the ones that are connected to the system, and have their state as active.
 
 `The connected Cameras can be configured to:`
 - Rename the selected camera to a more meaningful name such as what it is observing
