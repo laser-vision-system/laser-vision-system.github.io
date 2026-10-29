@@ -20,5 +20,5 @@ The cameras that can be configured are the ones that are connected to the system
 ![Camera Controls]()
 - Set the deviation thresholds for the selected camera (e.g. if a camera is misbehaving and needs a custom deviation range to keep it in check).
 ![Camera Deviation](./images/deviation_thresholds_slider.png)
-- The range (min - max) of the Deviation threshold input slider can be configured to suit the needs of the cameras threshold setup, which allows for the fine tuning of the deviation thresholds.
+- The range (min - max) of the deviation threshold input slider can be configured to suit the needs of the camera's threshold setup, allowing for fine-tuning of the deviation thresholds.
 ![Deviation Slider Range](./images/deviation_slider_range.png)
