@@ -7,6 +7,11 @@
 - [Server/GUI](system_installation/server_gui.md)
 - [Edge](system_installation/edge.md)
 
+# System Updating
+
+- [Server/GUI](system_updating/server_gui.md)
+- [Edge](system_updating/edge.md)
+
 # Usage Guides
 
 - [GUI](usage_guides/gui/intro.md)
