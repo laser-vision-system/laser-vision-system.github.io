@@ -3,7 +3,7 @@
 The Device Settings section is for the configuration of the devices used in this project, such as the cameras and microComputers that are currently being used.
 ## microComputers
 ![micro Computer Settings](./images/device_settings_microcomputer.png)
-The microComputers refers to the Raspberry pi that is used to run the edge, however the edge can also be run on any computer. However as a group we recommend the use of a microComputer such as the Raspberry pi, due its small form factor it fits well in the tightly packed laser lab.
+The microComputers refer to the Raspberry Pi(s) that is used to run the edge. The edge can also be run on any computer. However, using a microComputer such as the Raspberry Pi is recommended due to its small form factor that fits well in the tightly-packed laser lab.
 
 `The connected microComputers can be configured to:`
 - Be selected to filter the select options for all the connected cameras in the system in the camera configuration below.
