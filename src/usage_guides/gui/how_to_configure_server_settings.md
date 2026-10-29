@@ -6,7 +6,7 @@ The server settings can be configured via the global settings tab, located under
 Similar to the camera controls these settings can be either changed via the sliders or a number input, they all have their respective range and validation to check that the values they are configured to are valid.
 
 ## Saving the server values
-The server values can be save by clicking the `Save Server Defaults` button when this is clicked the values set will be validated then once deemed valid they are sent to the server via a post request.
+The server values can be saved by clicking the `Save Server Defaults` button. When this is clicked the values set will be validated before they are sent to the server via a post request.
 
 ## Resetting the Server values
 The server defaults are hard coded on the user interface, to reset to the default values, click on the `Reset Server Defaults` button, then to save this change click on the `Save Server Defaults` button.
