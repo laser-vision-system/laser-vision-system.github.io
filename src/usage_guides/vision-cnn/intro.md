@@ -1,10 +1,15 @@
 # Vision-CNN Introduction
 
-The [vision-cnn](https://github.com/laser-vision-system/vision-cnn) repository holds the code for training and running evaluation inference on a Convolutional Neural Network.
+The [vision-cnn](https://github.com/laser-vision-system/vision-cnn) repository
+holds the code for training and running evaluation inference on a Convolutional
+Neural Network.
 
-This repository uses the [dataset-loader](https://github.com/laser-vision-system/dataset-loader) repository as a submodule, as well as the datasets hosted on HuggingFace.
+This repository uses the
+[dataset-loader](https://github.com/laser-vision-system/dataset-loader)
+repository as a submodule, as well as the datasets hosted on HuggingFace.
 
-The primary method of interacting with this code library is through the included command-line interface (CLI). You can...
+The primary method of interacting with this code library is through the included
+command-line interface (CLI). You can...
 
 - [Train a new model from scratch:](train_new.md) `vision-cnn train new`
 
