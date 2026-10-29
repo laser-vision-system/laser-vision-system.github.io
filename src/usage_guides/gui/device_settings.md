@@ -14,7 +14,7 @@ The microComputers refer to the Raspberry Pi(s) that is used to run the edge. Th
 The cameras that can be configured are the ones that are connected to the system, and have their state as active.
 
 `The connected Cameras can be configured to:`
-- Rename the selected camera to a more meaningful name such as what it is observing
+- Rename the selected camera to a more meaningful name (e.g. what it is observing).
 - Change the selected camera controls to for tweaking to help improve the vision processing. `Some camera controls to consider are:`
   - PUT IMPORTANT CAMERA CONTROLS HERE
 ![Camera Controls]()
