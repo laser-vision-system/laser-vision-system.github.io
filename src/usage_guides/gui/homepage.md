@@ -1,7 +1,8 @@
 # Homepage
 
-![Homepage]()
+
 The Homepage is the main dashboard for the laser vision system. On it, you will find all information needed for standard operation.
+![Homepage](./images/homepage.png)
 
 ## Alerts
 
