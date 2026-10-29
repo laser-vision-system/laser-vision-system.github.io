@@ -1,2 +1,2 @@
 # How Tos 
-Short guides for how complete certain tasks using the GUI
+Short guides for how to complete certain tasks using the GUI.
