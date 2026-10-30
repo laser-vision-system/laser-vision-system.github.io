@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-c8a6235b.js";
+            window.path_to_searchindex_js = "searchindex-68985720.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-f0484336.js"></script>
@@ -549,45 +549,60 @@ ghcr.io/laser-vision-system/edge:arm64-release-main
 <p>Your docker image should now be updated.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="gui-introduction"><a class="header" href="#gui-introduction">GUI Introduction</a></h1>
-<p>The GUI shows the current state of the system and provides ways to interact with it.</p>
+<p>The GUI is the graphical user interface of the laser vision system.</p>
+<p>It shows the current state of the system and provides ways to interact with it.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="gui-quickstart"><a class="header" href="#gui-quickstart">GUI Quickstart</a></h1>
-<p>write short description of the gui here</p>
+<p>The GUI is the frontend of our system where the user can interact and operate the system. The following contents will go through the different sections of the GUI explaining there purpose.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="navbar"><a class="header" href="#navbar">NavBar</a></h1>
-<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/navbar.png" alt="NavBar"><span class="img-wrapper"><img src="usage_guides/gui/images/navbar.png" alt="NavBar"></span></label>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/navbar.png" alt="NavBar Image"><span class="img-wrapper"><img src="usage_guides/gui/images/navbar.png" alt="NavBar Image"></span></label>
 The NavBar, short for navigation bar, is used to switch between the different pages of the site. The NavBar icon of the currently selected page shows a red light to indicate which one is currently selected.</p>
 <p>From the NavBar, you can swap between the three main pages:</p>
 <ul>
-<li><a href="#homepage">The Homepage</a></li>
+<li><a href="#homepage">Homepage</a></li>
 <li><a href="#device-settings">Device Settings</a></li>
 <li><a href="#global-settings">Global Settings</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="homepage"><a class="header" href="#homepage">Homepage</a></h1>
-<p>The Homepage is the main dashboard for the laser vision system. On it, you will find all information needed for standard operation.
-<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/homepage.png" alt="Homepage"><span class="img-wrapper"><img src="usage_guides/gui/images/homepage.png" alt="Homepage"></span></label></p>
+<p>The Homepage is the main dashboard for the laser vision system. Here, you will find all the information needed for standard operations &amp; monitoring activities.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/homepage.png" alt="Homepage Image"><span class="img-wrapper"><img src="usage_guides/gui/images/homepage.png" alt="Homepage Image"></span></label></p>
 <h2 id="alerts"><a class="header" href="#alerts">Alerts</a></h2>
 <p>At the top of the page is the alerts section.</p>
-<p>It displays important information such as deviation warnings or device disconnection events. This section can be collapsed if necessary.</p>
+<p>It displays important information such as deviation warnings (moderate or high deviations) or device disconnection events. This section can be collapsed if necessary and will show a count of hidden alerts instead.</p>
 <h2 id="main-section"><a class="header" href="#main-section">Main Section</a></h2>
 <p>The main body of the page is information about all devices known by the system.</p>
 <p>The first tab shows all currently connected devices while the second tab shows devices that have been disconnected or have encountered an issue that prevents them from operating.</p>
 <h3 id="connections"><a class="header" href="#connections">Connections</a></h3>
 <p>This tab shows all currently connected devices.</p>
 <p>The cameras are grouped by the edge computing device that they are connected to.</p>
-<p>Each connected camera that has been calibrated will show the current deviation value and be coloured to alert if the deviation has drifted outside a set threshold using a stoplight colour system.</p>
-<p>There is a button for each edge computing device to quickly access configuration options for it.</p>
-<p>You can select a camera to view more details about it and calibrate the deviation measurement.</p>
+<p>Each connected camera that has been calibrated will show the current deviation value and be coloured to alert if the deviation has drifted outside a set threshold using a stoplight colour system, where:</p>
+<pre><code>Green: deviation within an acceptable range (no alert)
+Yellow: deviation within warning zones (moderate severity alert)
+Red: deviation within unacceptable ranges (high severity alert)
+</code></pre>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/homepage_connections.png" alt="Homepage Connections Image"><span class="img-wrapper"><img src="usage_guides/gui/images/homepage_connections.png" alt="Homepage Connections Image"></span></label></p>
+<p>For each edge computing device, there is a shortcut button to quickly access configuration options for it, sending the user to the device settings page with the corresponding edge device pre-selected when clicked.</p>
+<p>You may view more details about a camera by clicking its displayed box. From here, you may calibrate the deviation measurement, configure camera settings via the shortcut button to the device settings page, or view the camera’s live feed.</p>
 <h3 id="disconnections"><a class="header" href="#disconnections">Disconnections</a></h3>
-<p>This tab shows devices that are no longer connected to the system.</p>
-<p>Each device has a button to forget the camera completely. Faulty cameras have a button to manually force a reconnection attempt.</p>
+<p>This tab shows devices that are no longer connected to the system as well as faulty camera devices.</p>
+<p>These can include:
+- Disconnected edge devices
+- Disconnected cameras
+- Faulty cameras
+- Broken cameras: cameras that have connected &amp; initialised but fail to read a frame too many times
+- Limbo cameras: a connection is detected but the camera cannot be established</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/homepage_disconnections.png" alt="Homepage Disconnections Image"><span class="img-wrapper"><img src="usage_guides/gui/images/homepage_disconnections.png" alt="Homepage Disconnections Image"></span></label></p>
+<p>Each device has a button to forget the device completely.</p>
+<p>Broken cameras have a button to manually force a reconnection attempt.</p>
+<p>Limbo cameras only appear briefly before they are classified as broken.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="device-settings"><a class="header" href="#device-settings">Device Settings</a></h1>
-<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/device_settings.png" alt="Device Settings"><span class="img-wrapper"><img src="usage_guides/gui/images/device_settings.png" alt="Device Settings"></span></label>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/device_settings.png" alt="Device Settings Image"><span class="img-wrapper"><img src="usage_guides/gui/images/device_settings.png" alt="Device Settings Image"></span></label>
 The Device Settings section is for the configuration of the devices used in this project, such as the cameras and microComputers that are currently being used.</p>
 <h2 id="edge-device-settings"><a class="header" href="#edge-device-settings">Edge Device Settings</a></h2>
-<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/device_settings_microcomputer.png" alt="Edge Settings"><span class="img-wrapper"><img src="usage_guides/gui/images/device_settings_microcomputer.png" alt="Edge Settings"></span></label>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/device_settings_microcomputer.png" alt="Edge Settings Image"><span class="img-wrapper"><img src="usage_guides/gui/images/device_settings_microcomputer.png" alt="Edge Settings Image"></span></label>
 Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge can also be run on any computer. However, using a microComputer such as the Raspberry Pi is recommended due to its small form factor that fits well in the tightly-packed laser lab.</p>
 <p><code>The connected Edge devices can be configured to:</code></p>
 <ul>
@@ -603,41 +618,44 @@ Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge
 <li>Change the selected camera controls for tweaks to help improve the vision processing. <code>Some camera controls to consider are:</code>
 <ul>
 <li>PUT IMPORTANT CAMERA CONTROLS HERE
-<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="#device-settings" alt="Camera Controls"><span class="img-wrapper"><img src="#device-settings" alt="Camera Controls"></span></label></li>
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="#device-settings" alt="Camera Controls Image"><span class="img-wrapper"><img src="#device-settings" alt="Camera Controls Image"></span></label></li>
 </ul>
 </li>
 <li>Set the deviation thresholds for the selected camera (e.g. if a camera is misbehaving and needs a custom deviation range to keep it in check).
-<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/deviation_thresholds_slider.png" alt="Camera Deviation"><span class="img-wrapper"><img src="usage_guides/gui/images/deviation_thresholds_slider.png" alt="Camera Deviation"></span></label></li>
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/deviation_thresholds_slider.png" alt="Camera Deviation Image"><span class="img-wrapper"><img src="usage_guides/gui/images/deviation_thresholds_slider.png" alt="Camera Deviation Image"></span></label></li>
 <li>The range (min - max) of the deviation threshold input slider can be configured to suit the needs of the camera’s threshold setup, allowing for fine-tuning of the deviation thresholds.
-<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/deviation_slider_range.png" alt="Deviation Slider Range"><span class="img-wrapper"><img src="usage_guides/gui/images/deviation_slider_range.png" alt="Deviation Slider Range"></span></label></li>
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/deviation_slider_range.png" alt="Deviation Slider Range Image"><span class="img-wrapper"><img src="usage_guides/gui/images/deviation_slider_range.png" alt="Deviation Slider Range Image"></span></label></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="global-settings"><a class="header" href="#global-settings">Global Settings</a></h1>
 <p>The Global Settings section is for the configuration of the underlying aspects of the system. It is split into two sections: one for the GUI and the other for the server which includes the default server settings.</p>
 <h2 id="gui-settings"><a class="header" href="#gui-settings">GUI settings</a></h2>
-<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/gui_settings.png" alt="GUI Settings"><span class="img-wrapper"><img src="usage_guides/gui/images/gui_settings.png" alt="GUI Settings"></span></label>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/gui_settings.png" alt="GUI Settings Image"><span class="img-wrapper"><img src="usage_guides/gui/images/gui_settings.png" alt="GUI Settings Image"></span></label>
 <code>The global settings for the GUI include:</code></p>
 <ul>
 <li>A toggle for the theme of the user interface, it allows the user to switch between light and dark mode. (Dark mode is recommended.)</li>
 <li>A toggle for the viewing of the camera feed applicable to the whole application. This helps to declutter the UI.</li>
 </ul>
 <h2 id="server-settings"><a class="header" href="#server-settings">Server Settings</a></h2>
-<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/server_settings.png" alt="Global Settings"><span class="img-wrapper"><img src="usage_guides/gui/images/server_settings.png" alt="Global Settings"></span></label>
-<code>The global settings for the server defaults include:</code></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/server_settings.png" alt="Global Settings Image"><span class="img-wrapper"><img src="usage_guides/gui/images/server_settings.png" alt="Global Settings Image"></span></label></p>
+<p><code>The global settings for the server defaults include:</code></p>
 <ul>
-<li>Web-Socket poll interval</li>
-<li>Update Delay</li>
-<li>Camera Error Decrement</li>
-<li>Camera Error Increment</li>
-<li>Camera Error Threshold</li>
+<li>Web-Socket poll interval is related to the old websocket which was single threaded, the new multi-threaded, this has now been (<code>depreciated</code>).</li>
+<li>Update Delay is the delay between running the main loop, for faster edge analysis it can be lowered, please note that this will not increase the performance on the edge just the delay between each cycle of analysis. This can be helpful for saving bandwidth over the network at a larger scale, or over long periods of time where image analysis is only needed once every couple of seconds.</li>
+<li>Camera Error Decrement is the value that is reduce from the internal behaviour counter that each camera has. This decrement occurs when the camera is behaving correctly.</li>
+<li>Camera Error Increment is the value that the internal behaviour counter increases by. This occurs when the camera is misbehaving.</li>
+<li>Camera Error Threshold is the limit when passed the system will mark the camera as broken and can be found in the disconnected tab in the homepage.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="how-tos"><a class="header" href="#how-tos">How Tos</a></h1>
-<p>Short guides for how to complete certain tasks using the GUI.</p>
+<p>The flowing contents will provide short guides for how to complete certain tasks using the GUI.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="configure-edge-devices"><a href="#configure-edge-devices" class="header">Configure Edge Devices</a></h1>
 <h2 id="how-to-configure-edge-devices"><a class="header" href="#how-to-configure-edge-devices">How to Configure Edge Devices</a></h2>
-<p>An edge device can be configured through the homepage by clicking the configure button next the the name of the microcomputer in the connections tab of the homepage, alternatively you can go to the device settings page and select the microcomputer you wish to configure using the drop down menu.</p>
+<p>An edge device can be configured through the homepage by clicking the configure button next the the name of the microcomputer in the connections tab of the homepage.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_config_edge_homepage.png" alt="Configure Edge from Homepage Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_config_edge_homepage.png" alt="Configure Edge from Homepage Image"></span></label></p>
+<p>Alternatively you can go to the device settings page and select the microcomputer you wish to configure using the drop down menu.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_config_edge_device_settings.png" alt="Configure Edge from device settings Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_config_edge_device_settings.png" alt="Configure Edge from device settings Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="rename-edge-device"><a href="#rename-edge-device" class="header">Rename Edge Device</a></h1>
 <h3 id="how-to-rename-an-edge-device"><a class="header" href="#how-to-rename-an-edge-device">How to Rename an Edge Device</a></h3>
@@ -646,8 +664,9 @@ Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge
 <li>Select the desired Edge Device from the drop down menu directly under the Edge Device configuration section.</li>
 <li>When selected the Edge Device configuration options should appear below.</li>
 <li>Click on the text box with the Rename Edge Device label and enter the new name of the Edge Device. We advise a consistent naming scheme of your choice to avoid any confusion.</li>
-<li>To save the new name of the Edge Device click the <code>Rename</code> button next to the text box.</li>
+<li>To save the new name of the Edge Device click the <code>Rename</code> button next to the text box and click confirm on the confirmation pop-up.</li>
 </ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_rename_edge.png" alt="Rename Edge Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_rename_edge.png" alt="Rename Edge Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="select-vision-processing"><a href="#select-vision-processing" class="header">Select Vision Processing</a></h1>
 <h3 id="how-to-select-a-vision-processing-technique"><a class="header" href="#how-to-select-a-vision-processing-technique">How to Select a Vision Processing Technique</a></h3>
@@ -657,10 +676,12 @@ Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge
 <li>Underneath the rename configuration option there is an options to select vision processing; click on the drop-down menu and select the desired vision processing technique for the microcomputer.</li>
 <li>To save the selection click the <code>Select</code> button on the right of the drop-down menu.</li>
 </ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_vision_process.png" alt="Configure Edge from Homepage Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_vision_process.png" alt="Configure Edge from Homepage Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="configure-cameras"><a href="#configure-cameras" class="header">Configure Cameras</a></h1>
 <h2 id="how-to-configure-a-camera"><a class="header" href="#how-to-configure-a-camera">How to Configure a Camera</a></h2>
 <p>To configure a camera, either click the ‘Configure’ button in the Camera Info panel when the camera is selected on the homepage, or go to the device settings page and use the drop-down menu under the camera settings section to select the desired camera for configuration. In the case of too many camera options, the microcomputer can also be selected to filter the camera options by the microcomputer they are physically connected to.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_config_camera_homepage.png" alt="Configure Edge from Homepage Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_config_camera_homepage.png" alt="Configure Edge from Homepage Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="rename-camera"><a href="#rename-camera" class="header">Rename Camera</a></h1>
 <h3 id="how-to-rename-a-camera"><a class="header" href="#how-to-rename-a-camera">How to Rename a Camera</a></h3>
@@ -669,6 +690,7 @@ Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge
 <li>Directly under the select camera option, you should see the rename camera option. Simply click on the text box and type in the desired name.</li>
 <li>To save the new name to the camera name, just click the <code>Rename</code> button on the right of the text box and click confirm on the popup message.</li>
 </ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_rename_camera.png" alt="Configure Edge from Homepage Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_rename_camera.png" alt="Configure Edge from Homepage Image"></span></label></p>
 <p>It is advised to name the camera based on what it is observing or its position in the laser lab, thus providing meaningful context.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="configure-camera-controls"><a href="#configure-camera-controls" class="header">Configure Camera Controls</a></h1>
@@ -680,22 +702,31 @@ Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge
 <li>To save any changes made to the camera controls click the <code>Save Camera Controls</code> button.</li>
 </ol>
 <p>To reset any changes made to the camera values simply click the <code>Reset Camera Controls</code> button which will set all control values to their respective defaults, to apply these changes just click the <code>Save Camera Controls</code> button.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="#configure-camera-controls" alt="Camera Control Configuration Image"><span class="img-wrapper"><img src="#configure-camera-controls" alt="Camera Control Configuration Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="configure-camera-deviation-thresholds"><a href="#configure-camera-deviation-thresholds" class="header">Configure Camera Deviation Thresholds</a></h1>
-<h3 id="how-to-set-a-custom-threshold-deviation-for-a-camera"><a class="header" href="#how-to-set-a-custom-threshold-deviation-for-a-camera">How to set a Custom Threshold Deviation for a Camera.</a></h3>
+<h1 id="how-to-configure-deviation-thresholds"><a class="header" href="#how-to-configure-deviation-thresholds">How to Configure Deviation Thresholds</a></h1>
+<h2 id="how-to-set-a-custom-threshold-deviation-for-a-camera"><a class="header" href="#how-to-set-a-custom-threshold-deviation-for-a-camera">How to set a Custom Threshold Deviation for a Camera.</a></h2>
 <ol>
 <li>Ensure that the desired camera is selected in the select camera section, located under the Camera Configuration.</li>
 <li>The configuration for the deviation thresholds is located directly under the camera controls section.</li>
 <li>The deviation thresholds can be configured via the multi-thumb slider or via the respective number inputs underneath the slider.</li>
 <li>Any changes made to the threshold can be saved by clicking the <code>Save Thresholds</code> button.</li>
 </ol>
-<h4 id="how-to-save-the-global-default-for-the-deviation-thresholds"><a class="header" href="#how-to-save-the-global-default-for-the-deviation-thresholds">How to save the Global Default for the Deviation Thresholds</a></h4>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_set_deviation_thresholds.png" alt="Set Deviation Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_set_deviation_thresholds.png" alt="Set Deviation Image"></span></label></p>
+<h2 id="how-to-save-the-global-default-for-the-deviation-thresholds"><a class="header" href="#how-to-save-the-global-default-for-the-deviation-thresholds">How to save the Global Default for the Deviation Thresholds</a></h2>
 <p>To set a new global default values for the deviation thresholds simply used the same slider as used in setting the cameras deviation value. However instead of clicking the save thresholds button click the <code>Save Global Default Thresholds</code> button. This will set the threshold values selected as the global default and save it to the server.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_set_default_deviation_thresholds.png" alt="Set Global Deviation Thresholds Default Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_set_default_deviation_thresholds.png" alt="Set Global Deviation Thresholds Default Image"></span></label></p>
 <p><strong>To test the change has taken place:</strong></p>
 <ol>
 <li>Change the values on the slider.</li>
 <li>Then click the <code>Reset to Default</code> button and see if the values match the ones that were saved as the global default.</li>
 </ol>
+<h2 id="how-to-reset-deviation-thresholds-to-the-global-default"><a class="header" href="#how-to-reset-deviation-thresholds-to-the-global-default">How to Reset Deviation Thresholds to the Global Default</a></h2>
+<ol>
+<li>Ensure that the desired camera is selected in the select camera section, located under the Camera Configuration.</li>
+<li>Click the the <code>Reset to Default</code> button then to save the new threshold click the <code>Save Thresholds Button</code>.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_reset_deviation_thresholds.png" alt="Reset Deviation Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_reset_deviation_thresholds.png" alt="Reset Deviation Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="configure-deviation-slider-range"><a href="#configure-deviation-slider-range" class="header">Configure Deviation Slider Range</a></h1>
 <h2 id="how-to-configure-the-deviation-sliders-range"><a class="header" href="#how-to-configure-the-deviation-sliders-range">How to Configure the Deviation Slider’s Range</a></h2>
@@ -705,7 +736,8 @@ Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge
 <li>When the button is clicked the option to edit the min and max of the deviation scale are shown.</li>
 <li>To save the new configured range, click the <code>Set Range</code> button.</li>
 </ol>
-<p>To set the new configured range to the application’s default click the <code>Set Default Range</code> button.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_range_deviation_slider.png" alt="Deviation Thresholds Slider Range Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_range_deviation_slider.png" alt="Deviation Thresholds Slider Range Image"></span></label></p>
+<p>To set the new configured range to the application’s default  click the <code>Set Default Range</code> button. The Application default range is hard coded to <code>min: 80 </code> and <code>max: 120</code></p>
 <p>To reset the new configured range to the previously saved values click the <code>Cancel</code> button.</p>
 <p>To close the range configuration simply click the <code>Close Configuration</code> button located in the same location as the Configure Range button.</p>
 <div style="break-before: page; page-break-before: always;"></div>
@@ -714,39 +746,98 @@ Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge
 <p>Toggling the live camera feed doesn’t only stop the feed from showing on the GUI, it sends a request to the server to stop the viewing altogether. This can be very useful to not bloat the local lab’s network with a live camera feed when it is not needed and save the network’s bandwidth which could be a big help at a larger scale.</p>
 <h2 id="how-to-toggle-the-camera-feed-globally"><a class="header" href="#how-to-toggle-the-camera-feed-globally">How to Toggle the Camera Feed Globally</a></h2>
 <p>Located in the global settings tab under the theme toggle there is a sliding check box with the label of Automatic Camera Feed, simply click on the sliding check box to toggle the global camera feed.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_toggle_global_feed.png" alt="Global Feed Toggle Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_toggle_global_feed.png" alt="Global Feed Toggle Image"></span></label></p>
 <h2 id="how-to-toggle-the-camera-feed-locally"><a class="header" href="#how-to-toggle-the-camera-feed-locally">How to Toggle the Camera Feed Locally</a></h2>
 <h3 id="homepage-1"><a class="header" href="#homepage-1">Homepage</a></h3>
 <p>In the homepage tab the camera feed can be enabled / toggled by selecting a camera and clicking on the <code>View Live Feed</code> button, to disable or un-toggle the camera feed simply click the same button which has been renamed to <code>Hide Live Feed</code></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_toggle_feed_homepage.png" alt="Homepage Feed Toggle Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_toggle_feed_homepage.png" alt="Homepage Feed Toggle Image"></span></label></p>
 <h3 id="device-settings-1"><a class="header" href="#device-settings-1">Device Settings</a></h3>
 <p>In the device settings tab simply click on the arrow button, on the left of the Camera Feed label. This is in line with how the rest of the section toggles work in the settings tabs, when the arrow is pointing up it means that the section is hidden, if the arrow is pointing down it means that the section is visible.</p>
+<!--can't add right now need a webcam-->
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="#how-to-toggle-the-camera-feed" alt="Device Settings Feed Toggle Image"><span class="img-wrapper"><img src="#how-to-toggle-the-camera-feed" alt="Device Settings Feed Toggle Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="change-theme"><a href="#change-theme" class="header">Change Theme</a></h1>
 <h2 id="how-to-change-the-theme"><a class="header" href="#how-to-change-the-theme">How to Change the Theme</a></h2>
 <p>To alternate between dark and light themes in the Global Settings page, click the toggle under the themes label.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_theme.png" alt="Theme Change Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_theme.png" alt="Theme Change Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="how-to-configure-the-server-settings"><a class="header" href="#how-to-configure-the-server-settings">How to Configure the Server Settings</a></h1>
 <h2 id="location"><a class="header" href="#location">Location</a></h2>
 <p>The server settings can be configured via the global settings tab, located under the GUI settings section the server settings section has all the settings that can be changed on the server to effect its behaviour. These settings are kept by the server and sent to any edge device (microcomputer) that connects to the server, hence why they are often referred to as the default server settings.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_server_settings.png" alt="Server Setting Location Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_server_settings.png" alt="Server Setting Location Image"></span></label></p>
 <h2 id="how-to-configure"><a class="header" href="#how-to-configure">How to Configure</a></h2>
 <p>Similar to the camera controls these settings can be either changed via the sliders or a number input, they all have their respective range and validation to check that the values they are configured to are valid.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_server_settings_config.png" alt="Configure Server Setting Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_server_settings_config.png" alt="Configure Server Setting Image"></span></label></p>
 <h2 id="saving-the-server-values"><a class="header" href="#saving-the-server-values">Saving the server values</a></h2>
 <p>The server values can be save by clicking the <code>Save Server Defaults</code> button when this is clicked the values set will be validated then once deemed valid they are sent to the server via a post request.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_server_settings_save.png" alt="Save Server Setting Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_server_settings_save.png" alt="Save Server Setting Image"></span></label></p>
 <h2 id="resetting-the-server-values"><a class="header" href="#resetting-the-server-values">Resetting the Server values</a></h2>
-<p>The server defaults are hard coded on the user interface, to reset to the default values, click on the <code>Reset Server Defaults</code> button, then to save this change click on the <code>Save Server Defaults</code> button.</p>
+<p>The server defaults are hard coded on the user interface, to reset to the default values, click on the <code>Reset Server Defaults</code> button, then to save this change click on the <code>Save Server Defaults</code> button.
+<label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/how_to_server_settings_reset.png" alt="Save Server Setting Image"><span class="img-wrapper"><img src="usage_guides/gui/images/how_to_server_settings_reset.png" alt="Save Server Setting Image"></span></label></p>
 <h2 id="to-note"><a class="header" href="#to-note">To Note</a></h2>
 <p>The value of the camera error decrement is not allowed to be lower than the camera error increment. If this is done the custom validation will tell you off with a warning making it impossible to save the values when they are out of their respective bounds.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="calibrate-camera"><a href="#calibrate-camera" class="header">Calibrate Camera</a></h1>
-<h2 id="how-to-set-a-reference-frame"><a class="header" href="#how-to-set-a-reference-frame">How to Set a Reference Frame</a></h2>
+<h2 id="how-to-set-a-reference-frame--calibrate-a-camera"><a class="header" href="#how-to-set-a-reference-frame--calibrate-a-camera">How to Set a Reference Frame / Calibrate a Camera</a></h2>
+<ol>
+<li>Select the desired active camera.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/calibrate_camera_1.png" alt="Calibrate camera step 1 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/calibrate_camera_1.png" alt="Calibrate camera step 1 Image"></span></label></p>
+<ol start="2">
+<li>Click the <code>Calibrate</code> button.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/calibrate_camera_2.png" alt="Calibrate camera step 2 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/calibrate_camera_2.png" alt="Calibrate camera step 2 Image"></span></label></p>
+<ol start="3">
+<li>Deviation measurements should begin to update visually.</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="manage-disconnected-devices"><a href="#manage-disconnected-devices" class="header">Manage Disconnected Devices</a></h1>
-<h2 id="how-to-manage-disconnected-devices"><a class="header" href="#how-to-manage-disconnected-devices">How to Manage Disconnected Devices</a></h2>
+<h2 id="how-to-manage-disconnectedfaulty-devices"><a class="header" href="#how-to-manage-disconnectedfaulty-devices">How to Manage Disconnected/Faulty Devices</a></h2>
+<p>Any disconnected or faulty device may be forgotten, which removes them from the system.</p>
+<p>Broken cameras may be forcefully reconnected via a manual <code>Force Retry</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="forget-camera"><a class="header" href="#forget-camera">Forget Camera</a></h1>
+<ol>
+<li>Click the <code>Forget</code> button on the desired camera device.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/homepage_disconnections.png" alt="Forget camera step 1 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/homepage_disconnections.png" alt="Forget camera step 1 Image"></span></label></p>
+<ol start="2">
+<li>Click confirm.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/confirm_forget_camera.png" alt="Forget camera step 2 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/confirm_forget_camera.png" alt="Forget camera step 2 Image"></span></label></p>
+<ol start="3">
+<li>The camera should disappear from the UI.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/camera_forgotten.png" alt="Forget camera step 3 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/camera_forgotten.png" alt="Forget camera step 3 Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="forget-edge-device"><a class="header" href="#forget-edge-device">Forget Edge Device</a></h1>
+<ol>
+<li>Click the <code>Forget</code> button on the desired edge device.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/homepage_disconnections.png" alt="Forget edge step 1 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/homepage_disconnections.png" alt="Forget edge step 1 Image"></span></label></p>
+<ol start="2">
+<li>Click confirm.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/confirm_forget_edge.png" alt="Forget edge step 2 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/confirm_forget_edge.png" alt="Forget edge step 2 Image"></span></label></p>
+<ol start="3">
+<li>The edge device should disappear from the UI.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/forgotten_edge.png" alt="Forget edge step 3 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/forgotten_edge.png" alt="Forget edge step 3 Image"></span></label></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="force-retry-camera"><a class="header" href="#force-retry-camera">Force Retry Camera</a></h1>
+<ol>
+<li>Click the <code>Force Retry</code> button on the desired broken camera.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/homepage_disconnections.png" alt="Force retry step 1 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/homepage_disconnections.png" alt="Force retry step 1 Image"></span></label></p>
+<ol start="2">
+<li>Click confirm.</li>
+</ol>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="usage_guides/gui/images/confirm_force_retry_camera.png" alt="Forget edge step 2 Image"><span class="img-wrapper"><img src="usage_guides/gui/images/confirm_force_retry_camera.png" alt="Forget edge step 2 Image"></span></label></p>
+<ol start="3">
+<li>The camera will appear under <code>Connections</code> if it successfully reconnects, otherwise, where reconnection fails the camera will remain under <code>Faulty Cameras</code>.</li>
+</ol>
+<h2 id="note"><a class="header" href="#note">Note:</a></h2>
+<p>You may wish to forget a broken camera if manual reconnection attempts fail.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="dataset-assistant-introduction"><a class="header" href="#dataset-assistant-introduction">Dataset Assistant Introduction</a></h1>
 <p>The Dataset Assistant automates a lot of the work when building a dataset.</p>
