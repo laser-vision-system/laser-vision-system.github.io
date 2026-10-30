@@ -4,7 +4,7 @@ The Global Settings section is for the configuration of the underlying aspects o
 
 ## GUI settings
 
-![GUI Settings](./images/gui_settings.png)
+![GUI Settings Image](./images/gui_settings.png)
 `The global settings for the GUI include:`
 
 - A toggle for the theme of the user interface, it allows the user to switch between light and dark mode. (Dark mode is recommended.)
@@ -12,7 +12,7 @@ The Global Settings section is for the configuration of the underlying aspects o
 
 ## Server Settings
 
-![Global Settings](./images/server_settings.png)
+![Global Settings Image](./images/server_settings.png)
 
 `The global settings for the server defaults include:`
 
@@ -21,4 +21,3 @@ The Global Settings section is for the configuration of the underlying aspects o
 - Camera Error Decrement is the value that is reduce from the internal behaviour counter that each camera has. This decrement occurs when the camera is behaving correctly.
 - Camera Error Increment is the value that the internal behaviour counter increases by. This occurs when the camera is misbehaving.
 - Camera Error Threshold is the limit when passed the system will mark the camera as broken and can be found in the disconnected tab in the homepage.
-

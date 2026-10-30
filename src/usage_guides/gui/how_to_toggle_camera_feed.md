@@ -8,12 +8,20 @@ Toggling the live camera feed doesn't only stop the feed from showing on the GUI
 
 Located in the global settings tab under the theme toggle there is a sliding check box with the label of Automatic Camera Feed, simply click on the sliding check box to toggle the global camera feed.
 
+![Global Feed Toggle Image](./images/how_to_toggle_global_feed.png)
+
+
 ## How to Toggle the Camera Feed Locally
 
 ### Homepage
 
 In the homepage tab the camera feed can be enabled / toggled by selecting a camera and clicking on the `View Live Feed` button, to disable or un-toggle the camera feed simply click the same button which has been renamed to `Hide Live Feed`
 
+![Homepage Feed Toggle Image](./images/how_to_toggle_feed_homepage.png)
+
 ### Device Settings
 
 In the device settings tab simply click on the arrow button, on the left of the Camera Feed label. This is in line with how the rest of the section toggles work in the settings tabs, when the arrow is pointing up it means that the section is hidden, if the arrow is pointing down it means that the section is visible.
+
+<!--can't add right now need a webcam-->
+![Device Settings Feed Toggle Image]()

@@ -7,13 +7,13 @@
 3. The deviation thresholds can be configured via the multi-thumb slider or via the respective number inputs underneath the slider.
 4. Any changes made to the threshold can be saved by clicking the `Save Thresholds` button.
 
-![Set Deviation](./images/how_to_set_deviation_thresholds.png)
+![Set Deviation Image](./images/how_to_set_deviation_thresholds.png)
 
 ## How to save the Global Default for the Deviation Thresholds
 
 To set a new global default values for the deviation thresholds simply used the same slider as used in setting the cameras deviation value. However instead of clicking the save thresholds button click the `Save Global Default Thresholds` button. This will set the threshold values selected as the global default and save it to the server.
 
-![Set Global Deviation Thresholds Default](./images/how_to_set_default_deviation_thresholds.png)
+![Set Global Deviation Thresholds Default Image](./images/how_to_set_default_deviation_thresholds.png)
 
 
 **To test the change has taken place:**
@@ -25,4 +25,4 @@ To set a new global default values for the deviation thresholds simply used the 
 1. Ensure that the desired camera is selected in the select camera section, located under the Camera Configuration.
 2. Click the the `Reset to Default` button then to save the new threshold click the `Save Thresholds Button`.
 
-![Reset Deviation](./images/how_to_reset_deviation_thresholds.png)
+![Reset Deviation Image](./images/how_to_reset_deviation_thresholds.png)

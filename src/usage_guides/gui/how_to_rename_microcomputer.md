@@ -7,4 +7,4 @@ To Rename an Edge device which is connected to the system:
 3. Click on the text box with the Rename Edge Device label and enter the new name of the Edge Device. We advise a consistent naming scheme of your choice to avoid any confusion.
 4. To save the new name of the Edge Device click the `Rename` button next to the text box and click confirm on the confirmation pop-up.
 
-![Rename Edge](./images/how_to_rename_edge.png)
+![Rename Edge Image](./images/how_to_rename_edge.png)

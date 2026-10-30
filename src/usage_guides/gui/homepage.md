@@ -3,7 +3,7 @@
 
 The Homepage is the main dashboard for the laser vision system. Here, you will find all the information needed for standard operations & monitoring activities.
 
-![Homepage](./images/homepage.png)
+![Homepage Image](./images/homepage.png)
 
 ## Alerts
 
@@ -29,7 +29,7 @@ Each connected camera that has been calibrated will show the current deviation v
     Yellow: deviation within warning zones (moderate severity alert)
     Red: deviation within unacceptable ranges (high severity alert)
 
-![Homepage Connections](./images/homepage_connections.png)
+![Homepage Connections Image](./images/homepage_connections.png)
 
 For each edge computing device, there is a shortcut button to quickly access configuration options for it, sending the user to the device settings page with the corresponding edge device pre-selected when clicked.
 
@@ -46,7 +46,7 @@ These can include:
         - Broken cameras: cameras that have connected & initialised but fail to read a frame too many times
         - Limbo cameras: a connection is detected but the camera cannot be established
 
-![Homepage Disconnections](./images/homepage_disconnections.png)
+![Homepage Disconnections Image](./images/homepage_disconnections.png)
 
 Each device has a button to forget the device completely.
 

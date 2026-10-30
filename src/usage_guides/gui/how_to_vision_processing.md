@@ -6,4 +6,4 @@ To select a vision processing technique for the microcomputer:
 2. Underneath the rename configuration option there is an options to select vision processing; click on the drop-down menu and select the desired vision processing technique for the microcomputer.
 3. To save the selection click the `Select` button on the right of the drop-down menu.
 
-![Configure Edge from Homepage](./images/how_to_vision_process.png)
+![Configure Edge from Homepage Image](./images/how_to_vision_process.png)

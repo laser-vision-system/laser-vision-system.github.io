@@ -6,3 +6,5 @@
 4. To save any changes made to the camera controls click the `Save Camera Controls` button.
 
 To reset any changes made to the camera values simply click the `Reset Camera Controls` button which will set all control values to their respective defaults, to apply these changes just click the `Save Camera Controls` button.
+
+![Camera Control Configuration Image]()
