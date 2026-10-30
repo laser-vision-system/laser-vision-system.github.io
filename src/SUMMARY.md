@@ -41,6 +41,11 @@
 - [Dataset Assistant](usage_guides/dataset_assistant/intro.md)
   - [Quickstart](usage_guides/dataset_assistant/quickstart.md)
 
+- [Vision CNN](usage_guides/vision-cnn/intro.md)
+  - [Train](usage_guides/vision-cnn/train.md)
+    - [Arguments](usage_guides/vision-cnn/arguments.md)
+  - [Infer](usage_guides/vision-cnn/infer.md)
+
 ---
 
 [Glossary](glossary.md)
