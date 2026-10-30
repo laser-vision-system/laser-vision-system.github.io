@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-2358e44e.js";
+            window.path_to_searchindex_js = "../searchindex-f3090f24.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-0e7e2a49.js"></script>
+        <script src="../toc-1d071428.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -178,9 +178,109 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="installing-the-edge"><a class="header" href="#installing-the-edge">Installing The Edge</a></h1>
-<p>Install the Docker image directly.</p>
-<p>or</p>
-<p>Use the ISO.</p>
+<p>There are two methods for configuring a R-PI for production use, we reccomend using our provided custom raspberry pi image. If you wish to configure your raspberry pi without our image or need to run our system on another hardware platform we have also included steps on how to do so.</p>
+<hr>
+<h2 id="custom-image"><a class="header" href="#custom-image">Custom Image</a></h2>
+<h3 id="image-burning-and-setup"><a class="header" href="#image-burning-and-setup">Image Burning and Setup</a></h3>
+<h4 id="sd-card-burning"><a class="header" href="#sd-card-burning">SD card burning</a></h4>
+<p>Navigate too https://github.com/laser-vision-system/custom-rpi-imager/releases/tag/stable.1 and download lab-image-stable.zip and extract the image.</p>
+<p>Insert the SD card you want to image and download Raspberry Pi’s Image burning software www.raspberrypi.com/software.</p>
+<p>Select “choose device” and nominate the model of raspbery pi you have.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="images/image.png" alt="alt text"><span class="img-wrapper"><img src="images/image.png" alt="alt text"></span></label></p>
+<p>Select choose OS and scroll down to “Use custom”, when prompted navigate too and select our image.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="images/image-1.png" alt="alt text"><span class="img-wrapper"><img src="images/image-1.png" alt="alt text"></span></label></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="images/image-2.png" alt="alt text"><span class="img-wrapper"><img src="images/image-2.png" alt="alt text"></span></label></p>
+<p>Select “choose storage” and nominate your SD card.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="images/image-3.png" alt="alt text"><span class="img-wrapper"><img src="images/image-3.png" alt="alt text"></span></label></p>
+<p>Select “Next” and when asked select No.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="images/image-4.png" alt="alt text"><span class="img-wrapper"><img src="images/image-4.png" alt="alt text"></span></label></p>
+<p>Wait for the burn to complete and when prompted remove the SD card.</p>
+<p>Insert the SD card into your raspberry pi and wait for it to boot, If everything has worked correctly you should see a new edge device connect.</p>
+<h4 id="post-burn"><a class="header" href="#post-burn">Post Burn</a></h4>
+<p>If the edge does not connect immediately you may wish to connect via SSH and confirm the status.</p>
+<p><strong>It can take the R-PI 5-10 minutes to connect, please be patient</strong></p>
+<p>Navigate to 192.168.20.1 and check the connected clients, the new raspberry pi will have a host name of <code>laser-alignment-pi</code>. record the IP address so you can connect to it shortly.</p>
+<p>Download and install PuTTY https://putty.org/index.html.</p>
+<p>Run PuTTY and enter the IP address you found earlier into the “Host Name (or IP address)” field.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="images/image-5.png" alt="alt text"><span class="img-wrapper"><img src="images/image-5.png" alt="alt text"></span></label></p>
+<p>When asked press accept.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="images/image-6.png" alt="alt text"><span class="img-wrapper"><img src="images/image-6.png" alt="alt text"></span></label></p>
+<p>When prompted enter the username:</p>
+<p><code>lab_admin</code></p>
+<p>and the password is:</p>
+<p><code>TallGoggles5$2</code></p>
+<p>this user has sudo privlidges.</p>
+<h5 id="first-boot"><a class="header" href="#first-boot">First boot</a></h5>
+<p>If the docker image has not run allready you can start it manually using the following command:</p>
+<pre><code>sudo docker run --net=host --privileged --name edge --restart unless-stopped --mount type=bind,src=/dev,dst=/dev ghcr.io/laser-vision-system/edge:arm64-release-main 
+</code></pre>
+<hr>
+<h2 id="setup-without-an-image"><a class="header" href="#setup-without-an-image">Setup without an image</a></h2>
+<p><strong>Note.</strong> This part of the guide will assume you have a hardware machine that meets the minumum secifications for docker and our system, we will also assume that you have terminal or greater access to your system.</p>
+<h3 id="installing-docker"><a class="header" href="#installing-docker">Installing docker</a></h3>
+<p>Navigate to the corosponding link to install docker for your system</p>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/">‘Ubuntu’</a>
+<a href="https://docs.docker.com/engine/install/raspberry-pi-os/">‘Raspberry-pi-32-bit’</a>
+<a href="https://docs.docker.com/engine/install/debian/">‘Raspberry-pi-64-bit-or-Debian’</a>
+<a href="https://docs.docker.com/desktop/setup/install/windows-install/">‘Windows’</a>
+<a href="https://docs.docker.com/desktop/setup/install/mac-install/">‘Mac’</a></p>
+<h4 id="terminoligy"><a class="header" href="#terminoligy">Terminoligy</a></h4>
+<p>during this process you will see two key terms:</p>
+<ul>
+<li>Docker Image</li>
+<li>Docker Container</li>
+</ul>
+<p>A docker image is like a blueprint that can be used to build docker containers.</p>
+<p>you can find all avalible images on your machine by running <code>docker images</code></p>
+<p>you can find a list of all active containers by running <code>docker container ls</code></p>
+<p>if you wish to know more this <a href="https://www.geeksforgeeks.org/devops/difference-between-docker-image-and-container/">‘article’</a> explains the differences in greater detail</p>
+<h3 id="network-prep"><a class="header" href="#network-prep">Network prep</a></h3>
+<p>Make sure your device has access to the internet, if you wish to confirm try to ping <code>ghcr.io</code>. If this ping goes through you will be able to pull our docker images. If you are unable to ping this address we have found that while you are on the labs internal network you may need to do the following:</p>
+<ul>
+<li>disable IPv6</li>
+<li>configure a manual DNS server of <code>8.8.8.8</code> and <code>8.8.4.4</code></li>
+</ul>
+<h3 id="running-the-docker-image"><a class="header" href="#running-the-docker-image">Running the docker image</a></h3>
+<p>Now it is time to run our docker image, here is the command you need to run with its corosponding attributes:</p>
+<pre><code>docker run \
+--net=host \
+--privileged \
+--name edge \
+--restart unless-stopped \
+--mount type=bind,src=/dev,dst=/dev \
+--detach \
+-e SERVER_URL=192.168.20.13:8080 \
+-e VERBOSITY=3 \
+ghcr.io/laser-vision-system/edge:arm64-release-main 
+</code></pre>
+<h6 id="nethost"><a class="header" href="#nethost">–net=host</a></h6>
+<p>gives the docker container access to your devices network interface, this is required for auto connecting to the server.</p>
+<h6 id="priviledged"><a class="header" href="#priviledged">–priviledged</a></h6>
+<p>this runs the container in priveledged mode, without this tag our container will fail to access your devices cameras.</p>
+<h6 id="name-edge"><a class="header" href="#name-edge">–name edge</a></h6>
+<p>the name of your docker container, this can be changed freely and is the name that will be associated with its container id when you run the command <code>docker container ls</code></p>
+<h6 id="retsart-unless-stopped"><a class="header" href="#retsart-unless-stopped">–retsart unless-stopped</a></h6>
+<p>ensures that if your docker container stops running for any reason besisdes intentionally stopping it the container will start back up automaticly e.g. on device restart.</p>
+<h6 id="mount-typebindsrcdevdstdev"><a class="header" href="#mount-typebindsrcdevdstdev">–mount type=bind,src=/dev,dst=/dev</a></h6>
+<p>camera devices on linux are mounted to the dev folder in a machines root path, this command can be forgone on other platforms but is nessacary for our container to</p>
+<h6 id="detach"><a class="header" href="#detach">–detach</a></h6>
+<p>detaches your terminal from the container when running the container for the first time, the output of the docker run command will provide you with the edge ID and nothing more. if you execute <code>docker container ls</code> you can see the container running in the background</p>
+<h6 id="-e-"><a class="header" href="#-e-">-e …….</a></h6>
+<p>the two commands listed that start with the prefix <code>-e</code> are our enviorment varriables and are tailored to our system, <code>SERVER_URL</code> specifies the server address for our system. if not defined on first container run it will default to autoconnect which scans the local network for the server, make sure to include the port when specifying the address which is by default <code>8080</code>. the seccond varriable is our error logging verbosity <code>VERBOSITY</code> this specifies what level of errors are sent to the server, it ranges from 1 -&gt; 4 with the lower numbers only logging major errors where as 4 will log every occurance on our edge system.</p>
+<h6 id="ghcriolaser-vision-systemedgearm64-release-main"><a class="header" href="#ghcriolaser-vision-systemedgearm64-release-main">ghcr.io/laser-vision-system/edge:arm64-release-main</a></h6>
+<p>This specfies the image to use for our container, our tags follow a system as follows:</p>
+<p><code>ghcr.io/laser-vision-system/</code> - our github orgonization
+<code>/edge</code> - our edge program
+<code>arm64</code> - CPU architecture, raspberry pi’s run &amp; macs on <code>arm64</code> where as most modern laptops &amp; desktops use <code>amd64</code>
+<code>-release-</code> - Specifies the build target, release has only what is required for production where as the <code>dev</code> tag will print debugging alerts in the console
+<code>main</code> - the github branch that the docker image is built from, <code>main</code> is our stable branch and is intended for production use.</p>
+<h3 id="help-docker-could-not-find-the-image-when-trying-to-run-it"><a class="header" href="#help-docker-could-not-find-the-image-when-trying-to-run-it">Help! docker could not find the image when trying to run it.</a></h3>
+<p>if you get an error because your system cannot find the docker image localy you might be having network issues, please refer to the troubleshooting steps from early under <code>Network prep</code>. if you have preformed the above steps and can ping <code>ghcr.io</code> you can try pull the docker image manually.</p>
+<pre><code>docker pull ghcr.io/laser-vision-system/edge:arm64-release-main 
+</code></pre>
+<p>if this does not work please contact your IT department or the system maintainers.</p>
+<h3 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h3>
+<p>From this point on the process for updating the docker image will be the same as our provided image, please refer to the read me on how to update your docker image while in production.</p>
 
                     </main>
 
@@ -190,7 +290,7 @@
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../usage_guides/gui/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../system_updating/server_gui.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -204,7 +304,7 @@
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../usage_guides/gui/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../system_updating/server_gui.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

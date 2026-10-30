@@ -35,10 +35,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "../searchindex-2358e44e.js";
+            window.path_to_searchindex_js = "../searchindex-f3090f24.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-0e7e2a49.js"></script>
+        <script src="../toc-1d071428.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -177,10 +177,93 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="installing-the-servergui"><a class="header" href="#installing-the-servergui">Installing The Server/GUI</a></h1>
-<p>Make sure the Docker engine is installed.</p>
-<p>Type the command to download the Docker image.</p>
-<p>Type the command to run the Docker image.</p>
+                        <h1 id="installing-the-servergui-pre-requesites"><a class="header" href="#installing-the-servergui-pre-requesites">Installing The Server/GUI Pre-requesites</a></h1>
+<p>To deploy our system to your server you will need to have docker installed and access to the wider internet to pull our images, <strong>currently the lab server meets these requirements, this guide is here incase the server has to be setup from scratch again</strong></p>
+<p><strong>Note.</strong> This part of the guide will assume you have a hardware machine that meets the minumum secifications for docker and our system, we will also assume that you have terminal or greater access to your system.</p>
+<h2 id="installing-docker"><a class="header" href="#installing-docker">Installing docker</a></h2>
+<p>Navigate to the corosponding link to install docker for your system</p>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/">‘Ubuntu’</a>
+<a href="https://docs.docker.com/engine/install/raspberry-pi-os/">‘Raspberry-pi-32-bit’</a>
+<a href="https://docs.docker.com/engine/install/debian/">‘Raspberry-pi-64-bit-or-Debian’</a>
+<a href="https://docs.docker.com/desktop/setup/install/windows-install/">‘Windows’</a>
+<a href="https://docs.docker.com/desktop/setup/install/mac-install/">‘Mac’</a></p>
+<h2 id="network-prep"><a class="header" href="#network-prep">Network prep</a></h2>
+<p>Make sure your device has access to the internet, if you wish to confirm try to ping <code>ghcr.io</code>. If this ping goes through you will be able to pull our docker images. If you are unable to ping this address we have found that while you are on the labs internal network you may need to do the following:</p>
+<ul>
+<li>disable IPv6</li>
+<li>configure a manual DNS server of <code>8.8.8.8</code> and <code>8.8.4.4</code></li>
+</ul>
+<hr>
+<p>Please read the server pre-requistes document prior to following this guide, we will now walk you through the steps to configure the <code>server</code> and <code>gui</code> systems onto you server.</p>
+<hr>
+<h2 id="server"><a class="header" href="#server">Server</a></h2>
+<p>The server is a rellay point between all the <code>edge</code> compute devices in the lab and <code>gui</code>, it also holds your persistance data such as previously saved device configurations and logs.</p>
+<h3 id="starting-the-server-docker-container"><a class="header" href="#starting-the-server-docker-container">Starting the server docker container</a></h3>
+<p>navigate to your terminal and run the following command to start the server, listed are the  corosponding attributes:</p>
+<pre><code>docker run \
+-p 8080:8080 \
+--name server \ 
+--detach \ 
+--restart unless-stopped \
+--mount type=bind,src=/home/USR/laser-vision-system,dst=/content \
+ghcr.io/laser-vision-system/edge:amd64-release-main 
+</code></pre>
+<h6 id="-p-80808080"><a class="header" href="#-p-80808080">-p 8080:8080</a></h6>
+<p>this command exposes port 8080 on your host machine and inside the container, how this attribute works is the left most ports dictate what ports the container mouts too on your host where as the right is what the system thinks its being fed on the inside of the container. <strong>WE STRONGLY ADVISE AGAINST CHANGING THIS</strong> if you do need to change this you can alter the left side to whatever you wish but you must leave the right unchanged e.g. <code>----:8080</code>, <code>1234:8080</code>.</p>
+<h6 id="name-server"><a class="header" href="#name-server">–name server</a></h6>
+<p>the name of your docker container, this can be changed freely and is the name that will be associated with its container id when you run the command <code>docker container ls</code></p>
+<h6 id="detach"><a class="header" href="#detach">–detach</a></h6>
+<p>detaches your terminal from the container when running the container for the first time, the output of the docker run command will provide you with the edge ID and nothing more. if you execute <code>docker container ls</code> you can see the container running in the background</p>
+<h6 id="retsart-unless-stopped"><a class="header" href="#retsart-unless-stopped">–retsart unless-stopped</a></h6>
+<p>ensures that if your docker container stops running for any reason besisdes intentionally stopping it the container will start back up automaticly e.g. on device restart.</p>
+<h6 id="mount"><a class="header" href="#mount">–mount…..</a></h6>
+<p>this command exposes a folder on your host machine to the inside of the docker container, the <code>src=...</code> portion of the command tells your container where to mount the folder on your host machine. the <code>dst=...</code> is where the files are coming from inside the container. for the command to work <strong>You will need to change <code>USR</code> too the name of the lab servers primary account</strong> otherwise the logs will not write. if done correctly you will see a server.log file apear inside the <code>laser-vision-system</code> folder in your home directory.</p>
+<h6 id="ghcriolaser-vision-systemedgeamd64-release-main"><a class="header" href="#ghcriolaser-vision-systemedgeamd64-release-main">ghcr.io/laser-vision-system/edge:amd64-release-main</a></h6>
+<p>This specfies the image to use for our container, our tags follow a system as follows:</p>
+<p><code>ghcr.io/laser-vision-system/</code> - our github orgonization
+<code>/server</code> - our server program
+<code>amd64</code> - CPU architecture, raspberry pi’s run &amp; macs on <code>arm64</code> where as most modern laptops &amp; desktops use <code>amd64</code>
+<code>-release-</code> - Specifies the build target, release has only what is required for production where as the <code>dev</code> tag will print debugging alerts in the console
+<code>main</code> - the github branch that the docker image is built from, <code>main</code> is our stable branch and is intended for production use.</p>
+<h3 id="help-docker-could-not-find-the-image-when-trying-to-run-it"><a class="header" href="#help-docker-could-not-find-the-image-when-trying-to-run-it">Help! docker could not find the image when trying to run it.</a></h3>
+<p>if you get an error because your system cannot find the docker image localy you might be having network issues, please refer to the troubleshooting steps in the <code>server pre-requistes</code> document. if you have preformed the above steps and can ping <code>ghcr.io</code> you can try pull the docker image manually.</p>
+<pre><code>docker pull ghcr.io/laser-vision-system/server:amd64-release-main 
+</code></pre>
+<p>if this does not work please contact your IT department or the system maintainers.</p>
+<hr>
+<h2 id="gui"><a class="header" href="#gui">GUI</a></h2>
+<p>The GUI is what you will interact with on a day to day basis, it acts effectivly as a direct mirror of the server.</p>
+<h3 id="starting-the-gui-docker-container"><a class="header" href="#starting-the-gui-docker-container">Starting the gui docker container</a></h3>
+<p>navigate to your terminal and run the following command to start the gui, listed are the  corosponding attributes:</p>
+<pre><code>docker run \
+-p 5173:5173 \
+--name gui \ 
+--detach \ 
+--restart unless-stopped \
+ghcr.io/laser-vision-system/gui:amd64-main
+</code></pre>
+<h6 id="-p-51735173"><a class="header" href="#-p-51735173">-p 5173:5173</a></h6>
+<p>this command exposes port 5173 on your host machine and inside the container, how this attribute works is the left most ports dictate what ports the container mouts too on your host where as the right is what the system thinks its being fed on the inside of the container. <strong>WE STRONGLY ADVISE AGAINST CHANGING THIS</strong> if you do need to change this you can alter the left side to whatever you wish but you must leave the right unchanged e.g. <code>----:5173</code>, <code>1234:5173</code>.</p>
+<h6 id="name-gui"><a class="header" href="#name-gui">–name gui</a></h6>
+<p>the name of your docker container, this can be changed freely and is the name that will be associated with its container id when you run the command <code>docker container ls</code></p>
+<h6 id="detach-1"><a class="header" href="#detach-1">–detach</a></h6>
+<p>detaches your terminal from the container when running the container for the first time, the output of the docker run command will provide you with the edge ID and nothing more. if you execute <code>docker container ls</code> you can see the container running in the background</p>
+<h6 id="retsart-unless-stopped-1"><a class="header" href="#retsart-unless-stopped-1">–retsart unless-stopped</a></h6>
+<p>ensures that if your docker container stops running for any reason besisdes intentionally stopping it the container will start back up automaticly e.g. on device restart.</p>
+<h6 id="ghcriolaser-vision-systemguiamd64-main"><a class="header" href="#ghcriolaser-vision-systemguiamd64-main">ghcr.io/laser-vision-system/gui:amd64-main</a></h6>
+<p>This specfies the image to use for our container, our tags follow a system as follows:</p>
+<p><code>ghcr.io/laser-vision-system/</code> - our github orgonization
+<code>/gui</code> - our server program
+<code>amd64</code> - CPU architecture, raspberry pi’s run &amp; macs on <code>arm64</code> where as most modern laptops &amp; desktops use <code>amd64</code>
+<code>main</code> - the github branch that the docker image is built from, <code>main</code> is our stable branch and is intended for production use.</p>
+<h3 id="help-docker-could-not-find-the-image-when-trying-to-run-it-1"><a class="header" href="#help-docker-could-not-find-the-image-when-trying-to-run-it-1">Help! docker could not find the image when trying to run it.</a></h3>
+<p>if you get an error because your system cannot find the docker image localy you might be having network issues, please refer to the troubleshooting steps in the <code>server pre-requistes</code> document. if you have preformed the above steps and can ping <code>ghcr.io</code> you can try pull the docker image manually.</p>
+<pre><code>docker pull ghcr.io/laser-vision-system/gui:amd64-main 
+</code></pre>
+<p>if this does not work please contact your IT department or the system maintainers.</p>
+<h2 id="next-steps"><a class="header" href="#next-steps">Next steps</a></h2>
+<p>Once both docker containers are up and running you should be able to access the GUI by navigating to the servers address and adding <code>:5173</code> at the end of the address. for the lab enviroment that should be <code>192.168.20.13:5173</code>.</p>
+<p>If you need to update the docker containers on the server please refer too the</p>
 
                     </main>
 
