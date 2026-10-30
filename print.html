@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-f3090f24.js";
+            window.path_to_searchindex_js = "searchindex-c8a6235b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-1d071428.js"></script>
+        <script src="toc-f0484336.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -762,6 +762,134 @@ Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge
 <li>Build CSV.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="vision-cnn-introduction"><a class="header" href="#vision-cnn-introduction">Vision-CNN Introduction</a></h1>
+<p>The <a href="https://github.com/laser-vision-system/vision-cnn">vision-cnn</a> repository
+holds the code for training and running evaluation inference on a Convolutional
+Neural Network.</p>
+<p>This repository uses the
+<a href="https://github.com/laser-vision-system/dataset-loader">dataset-loader</a>
+repository as a submodule, as well as the datasets hosted on HuggingFace.</p>
+<p>The primary method of interacting with this code library is through the included
+command-line interface (CLI). You can…</p>
+<ul>
+<li>
+<p><a href="#training-a-new-model">Train a new model from scratch:</a>
+<code>cnn train new</code></p>
+</li>
+<li>
+<p><a href="#resumingfine-tuning-an-existing-model">Resume training (finetune) on an existing model:</a>
+<code>cnn train resume</code></p>
+</li>
+<li>
+<p><a href="#running-evaluation-inference-on-a-model">Run inference on a model:</a> <code>cnn infer</code></p>
+</li>
+</ul>
+<p>You can use <code>cnn help</code> to see basic command information, <code>cnn help &lt;subcommand&gt;</code>
+to see detaiked information, and <code>cnn &lt;subcommand&gt; -h</code> for concise usage
+information.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="train"><a class="header" href="#train">Train</a></h1>
+<blockquote>
+<p><code>cnn train</code></p>
+</blockquote>
+<p>Use <code>cnn train -h</code> to view concise subcommand usage information.</p>
+<p>The train subcommand uses the <code>./output/</code> directory to save training artefacts
+and exported model weights. This directory is relative to your current working
+directory (check with <code>pwd</code>). Each model will get its own folder in this
+directory, so the folder structure will likely look something like this:</p>
+<pre><code>output/
+ ├── my_first_model/
+ │    └── ...
+ ├── model_improved/
+ │    └── ...
+ ├── model_improved_with_higher_learning_rate/
+ │    └── ...
+ └── ...
+</code></pre>
+<p>The models folder name is the only required argument when executing each of the
+training subcommands (<code>new</code> or <code>resume</code>). Attempting to use a name that already
+exists will fail, unless you use <code>--force</code> or <code>-f</code>.</p>
+<p>Both training a new model and resuming/fine-tuning an existing model share a
+number of common arguments; the full table can be found <a href="#arguments">here</a>.</p>
+<h2 id="training-a-new-model"><a class="header" href="#training-a-new-model">Training A New Model</a></h2>
+<blockquote>
+<p><code>cnn train new</code></p>
+</blockquote>
+<p>Use <code>cnn train new -h</code> to view concise subcommand usage information.</p>
+<p>This subcommand has a single required argument, which will be the name of the
+folder under <code>./outputs/</code> that the artefacts and model weights are placed into.
+E.g. <code>cnn train new model_1</code> will output into the folder at
+<code>./outputs/model_1/</code>.</p>
+<p>After executing the command, a textual user interface will appear which displays
+training progress and metrics. <strong>The first time you run the command, it may take
+a while before the training actually begins, this is the the program
+automatically tuning itself to your hardware</strong>.</p>
+<p>Once the training has completed, a summary of the model struture and training
+metrics will be printed to the terminal. If you included the <code>--evaluate</code>
+argument (highly recommended), the program with automatically run the evaluation
+procedure, printing a summary of the result to the terminal and saving more
+detailed information to <code>./reports/</code>.</p>
+<h2 id="resumingfine-tuning-an-existing-model"><a class="header" href="#resumingfine-tuning-an-existing-model">Resuming/Fine-tuning An Existing Model</a></h2>
+<blockquote>
+<p><code>cnn train resume</code></p>
+</blockquote>
+<p>Use <code>cnn train resume -h</code> to view concise subcommand usage information.</p>
+<p>This subcommand has a single required argument, which will be the name of the
+folder under <code>./outputs/</code> that the model is loaded and resumed from.</p>
+<p>By default, the <code>resume</code> subcommand will output directly back into the model
+folder that it loaded from. This can be changed by using
+<code>--output &lt;new_model_folder&gt;</code> or just <code>-o &lt;new_model_folder&gt;</code>. E.g.
+<code>cnn train resume model_1 -o model_1-prime</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="arguments"><a class="header" href="#arguments">Arguments</a></h1>
+<p>Both <code>cnn train new</code> and <code>cnn train resume</code> share a large number of arguments.
+For simplicity, they are all listed here.</p>
+<p>They are also viewable with either <code>cnn help train new</code> or
+<code>cnn help train resume</code>.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Argument</th><th>Description</th><th>Equivalent Environment Variable</th></tr>
+</thead>
+<tbody>
+<tr><td><code>--dataset</code>/<code>-d</code></td><td>Select the dataset source to use when training the model.</td><td>N/A</td></tr>
+<tr><td><code>--force</code>/<code>-f</code></td><td>Replace an output directory if it exists, deleting all contents.</td><td>N/A</td></tr>
+<tr><td><code>--name &lt;MODEL_NAME&gt;</code></td><td>Choose a custom name for the output model weights file. Defaults to <code>model</code>.</td><td><code>VISION_CNN_MODEL_NAME</code></td></tr>
+<tr><td><code>--evaluate</code></td><td>Automatically run evaluation once the training completes. The result will be saved into the <code>./reports/</code> directory with a matching name.</td><td>N/A</td></tr>
+<tr><td><code>--dry-run</code></td><td>Don’t export the model weights once completed. Training artefacts are saved to a temporary directory.</td><td>N/A</td></tr>
+<tr><td><code>--num-epochs</code></td><td>Epochs to run in this invocation. This is considered to be additional epochs when resuming.</td><td><code>VISION_CNN_NUM_EPOCHS</code></td></tr>
+<tr><td><code>--batch-size</code></td><td>The number of images in each batch. High values use substantially more video memory (VRAM).</td><td><code>VISION_CNN_BATCH_SIZE</code></td></tr>
+<tr><td><code>--num-workers</code></td><td>How many threads are allocated to loading the dataset.</td><td><code>VISION_CNN_NUM_WORKERS</code></td></tr>
+<tr><td><code>--seed</code></td><td>The seed value used for random number generation.</td><td><code>VISION_CNN_SEED</code></td></tr>
+<tr><td><code>--learning-rate</code></td><td>The initial learning rate. Higher values increase how quickly the weights approach the goal value but also increase instablility.</td><td><code>VISION_CNN_LEARNING_RATE</code></td></tr>
+<tr><td><code>--decay-rate</code></td><td>Scalar factor for the inverse time decay scheduler. This is how quickly the learning rate reduces over time.</td><td><code>VISION_CNN_DECAY_RATE</code></td></tr>
+<tr><td><code>--decay-steps</code></td><td>The learning-rate decay interval (<code>0</code> derives it automatically). This can be used when the number of iterations per epoch has changed; due to the batch size or other.</td><td><code>VISION_CNN_DECAY_STEPS</code></td></tr>
+<tr><td><code>--early-stopping-patience</code></td><td>How many validation epochs without improvement before the system automatically stops.</td><td><code>VISION_CNN_EARLY_STOPPING_PATIENCE</code></td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="running-evaluation-inference-on-a-model"><a class="header" href="#running-evaluation-inference-on-a-model">Running Evaluation Inference On A Model</a></h1>
+<blockquote>
+<p><code>cnn infer</code></p>
+</blockquote>
+<p>Use <code>cnn infer -h</code> to view concise subcommand usage information.</p>
+<p>This subcommand has a single required argument, which will be the name of the
+folder under <code>./outputs/</code> that the model is loaded to run inference on.</p>
+<p>If the model weights file itself has a name different to <code>model.bpk</code>, you can
+optionally specify it with <code>--name</code>.</p>
+<p>You can choose which dataset to run inference on with <code>--dataset</code> or <code>-d</code>. The
+options that you can choose from are listed with <code>cnn infer -h</code>.</p>
+<p>By default, inference will only run on a single sample, you can choose a
+different number with <code>--num-samples</code>.</p>
+<p>If you wish to perform a full evaluation, you can use the <code>--evaluate-all</code>
+argument. You are required to also include <code>--report-dir</code> to specify a place to
+save the output of the evaluation. If the output folder already exists, you must
+use <code>--force</code> or <code>-f</code> to replace it.</p>
+<p>You can configure the evaluation with <code>--evaluation-batch-size</code> and
+<code>--evaluation-split</code>.</p>
+<!-- a summary of the result to the terminal and saving more detailed information to `./reports/`.-->
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="glossary"><a class="header" href="#glossary">Glossary</a></h1>
 <dl>
 <dt id="gui-1"><a class="header" href="#gui-1"><em>GUI</em></a></dt>
@@ -772,6 +900,14 @@ Edge devices refer to the Raspberry Pi(s) that is used to run the edge. The edge
 <dd>The software that is deployed to a Raspberry Pi.</dd>
 <dt id="dataset-assistant"><a class="header" href="#dataset-assistant"><em>Dataset Assistant</em></a></dt>
 <dd>A utility program to automate data collection.</dd>
+<dt id="cli"><a class="header" href="#cli"><em>CLI</em></a></dt>
+<dd><strong>C</strong>ommand-<strong>L</strong>ine <strong>I</strong>nterface.</dd>
+<dt id="argument"><a class="header" href="#argument"><em>Argument</em></a></dt>
+<dd>In the context of running a command in the terminal, arguments are any other text that follows the name of the executable.<br>E.g. <code>my_exec --argument --key value</code></dd>
+<dt id="environment-variable"><a class="header" href="#environment-variable"><em>Environment Variable</em></a></dt>
+<dd>A key value pair defined on the operating system that is given to a program when it executes.<br>E.g. <code>KEY=value my_exec</code></dd>
+<dt id="thread"><a class="header" href="#thread"><em>Thread</em></a></dt>
+<dd>A single chain of CPU instructions. A program can use multiple threads to run different operations in parallel.</dd>
 </dl>
 
                     </main>
