@@ -1,11 +1,14 @@
 # Introduction
 
-Blah blah blah, this is our project.
+> This is the user manual for the Laser Vision System of Swinburne's Dysprosium Quantum Gas Microscope Laboratory.
 
-Elevator pitch.
+The Laser Vision System is a full-stack solution that consists of a Server, GUI, and multiple Edge computing units.
 
-> [!NOTE]
-> TODO
+The Server and GUI facilitate displaying laser deviation readings to lab users.
+
+The Edge computing units are able to run multiple vision processing methods that can each assess laser deviation.
+
+This book can be used as a guide for system installation, system updates, and general operations.
 
 **Sections of this book:**
 
